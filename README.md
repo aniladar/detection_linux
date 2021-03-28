@@ -44,6 +44,9 @@ python save_model.py --model yolov4
 # Run yolov4 deep sort object tracker on video (to record detection on a video file, set --output flag to related directory)
 python object_tracker.py --video ./data/video/test.mp4 --output --model yolov4 --info
 
+# for terminal output (set dont_show flag)
+python object_tracker.py --video ./data/video/test.mp4 --output --model yolov4 --dont_show --info
+
 # Run yolov4 deep sort object tracker on live camera (to record detection on a video file, set --output flag to related directory)
 python object_tracker.py --video 0 --output --model yolov4 --info
 ```
