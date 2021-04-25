@@ -2,9 +2,6 @@ import os
 # comment out below line to enable tensorflow logging outputs
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import time
-from xml.dom import minidom
-from datetime import datetime
-import timeit
 import tensorflow as tf
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
 if len(physical_devices) > 0:
@@ -220,37 +217,7 @@ def main(_argv):
         # if enable info flag then print details about each track
             if FLAGS.info:
                 print("Tracker ID: {}, Class: {},  BBox Coords (xmin, ymin, xmax, ymax): {}".format(str(track.track_id), class_name, (int(bbox[0]), int(bbox[1]), int(bbox[2]), int(bbox[3]))))
-            alarm_times=[]
-            act_time1= str(time.asctime(time.localtime(time.time())))
-            act_time= str(time.asctime(time.localtime(time.time())))
-            start = timeit.timeit()
-            if class_name == "person" or class_name == "car" or class_name == "truck":
-              if track.track_id == 1:
-                str_time = str(time.asctime(time.localtime(time.time())))
-              f = open("alarm_times.txt", "a")
-              f.write("Detection on %s \n" % act_time )
-              f.close()
-              alarm_times.append(act_time)
-            end = timeit.timeit()
-            elapsed = (end - start)
-            elps_cnvrtd = time.strftime('%H:%M:%S', time.gmtime(elapsed))
-            root = minidom.Document()
-            xml = root.createElement('root')
-            root.appendChild(xml)
-            alarm_startChild = root.createElement('ALARM is started at:')
-            alarm_startChild.setAttribute('--->', act_time1)
-            xml.appendChild(alarm_startChild)
-            alarm_endedChild = root.createElement('ALARM is ended at:')
-            alarm_endedChild.setAttribute('--->', act_time)
-            xml.appendChild(alarm_endedChild)
-            alarm_durationChild = root.createElement('ALARM duration is:')
-            alarm_durationChild.setAttribute('--->', elps_cnvrtd)
-            xml.appendChild(alarm_durationChild)
-            xml_str = root.toprettyxml(indent ="\t") 
-            save_path_file = "alarm.xml"
-                
-            with open(save_path_file, "w") as f:
-              f.write(xml_str)
+
         # calculate frames per second of running detections
         fps = 1.0 / (time.time() - start_time)
         print("FPS: %.2f" % fps)
