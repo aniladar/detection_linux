@@ -20,7 +20,7 @@ pip install -r requirements.txt
 pip install -r requirements-gpu.txt
 ```
 
-\!!! For GPU usage, if Conda Environment is not used, the environment has not set up CUDA yet. Make sure to use CUDA Toolkit version 10.1 . Repo for proper CUDA is
+\!!! For GPU usage, if Conda Environment (Anaconda) is not used (just for Windows, Linux does not need it), the environment has not set up CUDA yet. Make sure to use CUDA Toolkit version 10.1 . Repo for proper CUDA is
 https://developer.nvidia.com/cuda-10.1-download-archive-update2
 
 ## Pre-trained Network
