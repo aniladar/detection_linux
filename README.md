@@ -1,4 +1,5 @@
 # Setup Instructions for the Linux machine to test CNNs
+This repo is cloned from [AIGUYS' deep-sort repo](https://github.com/theAIGuysCode/yolov4-deepsort) 
 ## Requirements
  * Python 3.8
  * Tensorflow 2.3.0
