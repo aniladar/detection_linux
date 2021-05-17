@@ -1,0 +1,4 @@
+* yolov4-obj.cfg darknet/cfg klasörüne
+* test imajları darknet/data/test klasörü içine labelları ile birlikte
+* obj.data ve obj.names dosyaları darknet/data klasörü içine
+* generate.py(darknet klasörüne) ile oluşturulacak test.txt dosyası darknet/data   
